@@ -1,0 +1,6 @@
+const ACTION_TYPES = {
+    CREATE_DATA: 'CREATE_DATA',
+    DELETE_DATA: 'DELETE_DATA',
+    DATA_ERROR: 'DATA_ERROR'
+  };
+  export default ACTION_TYPES;

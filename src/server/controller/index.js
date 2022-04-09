@@ -1,0 +1,1 @@
+module.exports.rssController = require('./postController')

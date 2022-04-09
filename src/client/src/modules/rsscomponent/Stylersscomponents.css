@@ -1,0 +1,100 @@
+.container{ 
+    height: auto;
+    /*max-width: 700px;*/
+    margin: 20px;
+    border-bottom: 1px solid;
+}
+
+.title{
+    font-size: 25px;
+}
+
+.categories{
+    display: flex;
+    max-width: auto;
+    flex-wrap: wrap;
+}
+
+.infoCat{
+    border: 1px solid;
+    margin: 5px;
+    text-overflow: ellipsis;
+    /*white-space: nowrap;*/
+    justify-content: space-between;
+    background-color: rgb(255, 255, 255);
+}
+
+.infoCat:hover{
+    cursor: pointer;
+    text-align: center;
+    background-color: brown;
+}
+
+.textCat{
+    margin: 4px;
+}
+
+.img{
+    display: block;
+    margin-right: auto;
+}
+
+.Link{
+    text-decoration: none;
+    border-bottom: 1px solid;
+    color: black;
+}
+
+.Link:hover{
+    color: brown;
+    font-weight: bold;
+}
+
+.contentSnippet{
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+.Creator{
+    margin-top: 10px;
+}
+
+.categoirsname{
+    font-size: 25px;
+}
+
+.DelButton{
+    float: right;
+    border: 1px solid;
+    cursor: pointer;
+    width: 100px;
+    margin-left: 5px;
+}
+
+.DelButton:hover{
+    background-color: brown;
+}
+
+.Button{
+    text-decoration: none;
+    text-align: center;
+    top: 11%;
+    position: relative;
+    font-size: 15px;
+    font-weight: bold;
+}
+
+.Footer-Card{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+.Main-info{
+    margin-top: 10px;
+    display: flex;
+}
+
+.TextLink{
+    margin-left: 20px;
+}
