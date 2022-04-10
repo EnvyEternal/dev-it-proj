@@ -1,1 +1,1 @@
-For start app: 
+For start app: npm run start
