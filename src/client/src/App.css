@@ -91,7 +91,7 @@
   color: white;
 }
 
-@media (min-height: 375px){
+@media (max-height: 900px){
   .Header{
       max-width: 100%;
   }

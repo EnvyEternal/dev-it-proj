@@ -33,7 +33,8 @@ module.exports.getAdmin = async(req, res) =>{
                 if(checkPass){
                     const token = jwt.sign({
                         login: ad,
-                        role
+                        role,
+                        id: adminId
                       }, `${TOKEN_KEY}`, { expiresIn: "1d" })
                       if(token){
                     return res.status(200).cookie("CookiesToken", token).send({checkPass, login: ad, role})
