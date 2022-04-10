@@ -1,13 +1,14 @@
-const {Admin, RefreshToken} = require('../db/models')
+const {Admin} = require('../db/models')
 const bcrypt = require('bcrypt')
 const jwt = require("jsonwebtoken");
 const TOKEN_KEY = require('../constants/index');
 const cookieJwtAuth = require('../middleware/authentication/cookieJwtAuth')
 
 module.exports.createAdmin = async(req, res)=>{
-    const { body } = req
+    const { data } = req.body
+
     try{
-        const create = await Admin.create(body)
+        const create = await Admin.create(data)
         if(create){
            return res.status(200).send(create)
         }
@@ -33,43 +34,47 @@ module.exports.getAdmin = async(req, res) =>{
                     const token = jwt.sign({
                         login: ad,
                         role
-                      }, `${TOKEN_KEY}`, { expiresIn: "1hr" })
+                      }, `${TOKEN_KEY}`, { expiresIn: "1d" })
                       if(token){
-                    return res.status(200).cookie("Cookies", token).send({checkPass, login: ad, role, token})
+                    return res.status(200).cookie("CookiesToken", token).send({checkPass, login: ad, role})
                     }
                 }else{
                     return res.status(400).send('Wrong data')
                 }
             }
         }catch(e){
-            res.status(501).send("Wrong Data");
+            res.status(401).send("Wrong Data");
         }
 }
 
 module.exports.logOut = async(req, res) =>{
-    const { body } = req
     try{
-        const token = await RefreshToken.destroy({
-            where: {
-              adminId : body.adminId
-            }
-        })
-        if(token){
-        res.status(200).send('token')}
+
+        res.clearCookie("CookiesToken")
     }catch(e){
         res.status(400).send("Error")
     }
 }
 
-module.exports.check = async(req,res)=>{
-    const {body} = req
-    const token = body.cookies.token
-    console.log('Cookies: ', body.cookies.token)
-  try {
-    res.status(200).send('Ok')
-  } catch (err) {
-    //res.clearCookie("token");
-    console.log(err)
-  }
+module.exports.getAllModerator = async (req, res)=>{
+    try{
+        const allModderator = await Admin.findAll({where: {role: 'Moderator'},attributes: { exclude: ['password','updatedAt'] }})
+        if(allModderator){
+            res.status(200).send(allModderator)
+        }
+    }catch(err){
+        res.status(401)
+    }
+}
 
+module.exports.deleteModerator = async  (req, res) =>{
+    const {params: {id}} = req
+    try {
+        const deleteUser = await Admin.destroy({where: {id: id}})
+        if(deleteUser){
+            res.status(200)
+        }
+    }catch (e){
+        res.status(401)
+    }
 }

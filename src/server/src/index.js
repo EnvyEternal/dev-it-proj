@@ -25,12 +25,12 @@ app.use('/api', router)
 
 
 app.use(cors({
-  origin:'*',
+  origin:'http://localhost:3000',
   credentials: true
 }))
 
 
-cron.schedule('* * * * *', () => {
+cron.schedule('5 * * * *', () => {
   console.log('Parsing RSS:');
   RssPusher()
 })

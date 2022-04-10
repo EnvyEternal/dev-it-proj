@@ -1,11 +1,10 @@
 import React, { useState } from 'react'
-import axios from 'axios';
-import { useCookies } from "react-cookie";
 import Header from '../header';
 
 import './Stylelogin.css'
 import { connect } from 'react-redux';
 import { createData } from '../../redux/actions/index.js'
+import {login} from "../../api";
 
 
 
@@ -16,7 +15,6 @@ function Login(props) {
         login: "",
         password: "",
       })
-    const [cookies, setCookie] = useCookies();
     const [err, setErr] = useState()
 
       const handleChange = (e) => {
@@ -33,12 +31,8 @@ function Login(props) {
           login: data.login,
           password: data.password,
         };
-        axios.post("http://localhost:5001/api/get", adminData).then((response) => {
-            setCookie("token", response.data.token, {
-                path: "/",
-                maxAge: "1500"
-
-              }, document.location.href = "http://localhost:3000")
+        login(adminData).then(() => {
+             document.location.href = "http://localhost:3000"
          }).catch(()=>{setErr('Wrong Data')
         });
       };

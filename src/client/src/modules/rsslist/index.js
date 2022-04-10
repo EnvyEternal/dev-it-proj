@@ -5,23 +5,22 @@ import './Stylersslist.css'
 import Header from '../header'
 import Footer from '../footer'
 import { getRss, updatePost } from '../../api'
-import { useCookies } from "react-cookie"
 import Search from '../search'
 import Select from '../select'
 import CreatePost from '../createPost'
+import {connect} from "react-redux";
 
 function RssList(props) {
   const [data, setData] = useState([])
   const [page, setPage] = useState(1)
   const [categories, setCategories] = useState()
   const [editing, setEditing] = useState(false)
-  const [cookies] = useCookies()
   const [phrase, setPhrase] = useState('')
   const [selectForm, setSelectForm] = useState()
   const [creating, setCreating] = useState(false)
-    
+  const {isFetching} = props.state
+
   const getNews = () =>{
-    console.log(data)
     getRss(page, phrase, selectForm).then((res) => setData(res.data))
     }
 
@@ -79,12 +78,15 @@ function RssList(props) {
     };
     const dataForSend = data.categories
     if(window.confirm("Do you wont save?")) {
-    updatePost(cookies, dataForSend)
+    updatePost( dataForSend)
     setEditing(false)
     setTimeout(() => {
       getNews()
     }, 10)}
   };
+  const canceledPost = () =>{
+    setCreating(false)
+  }
 
   const getCategories = (data) =>{
     setEditing(true)
@@ -104,7 +106,6 @@ function RssList(props) {
 
     useEffect(()=>{
       getNews()
-      console.log('Hi')
     }, [page, selectForm, phrase])
 
     const next = () =>{
@@ -121,10 +122,12 @@ function RssList(props) {
 
   return (<>
         <Header />
-        <Search  searchPhrase = {searchPhrase}/>
-        <Select callSelect={callSelect}/>
-        {creating? <CreatePost /> : null}
-        <button onClick={create} className='button-edit'>Create Post</button>
+        <div className='control'>
+          <Search  searchPhrase = {searchPhrase}/>
+          <Select callSelect={callSelect}/>
+        </div>
+        {creating? <CreatePost canceledPost={canceledPost} /> : null}
+    {isFetching ? <button onClick={create} className='button-edit'>Create Post</button> : null}
         <div>{editing ? 
           <div className='edit-form-back'>
             <div className='edit-form'>
@@ -189,4 +192,6 @@ function RssList(props) {
   
 }
 
-export default RssList
+const mapStateToProps = state => {return {state: state.dataReducerStates}};
+
+export default connect(mapStateToProps) (RssList)

@@ -21,44 +21,33 @@ module.exports.getAll = async (req, res)=>{
 
 module.exports.delNews = async (req, res) =>{
     const {params: {idNews}} = req
-    const token = req.cookies.token
     try{
-        const admin = jwt.verify(token, `${TOKEN_KEY}`);
-        if(admin){
-            const del = await Rsses.destroy({where: {id: idNews}})
-            if(del){
+        const del = await Rsses.destroy({where: {id: idNews}})
+            if(del) {
                 res.status(200).send('Destroy')
             }
-        }else{
-            res.status(401)
-        }
     }catch(e){
         res.status(401)
     }
 }
 
 module.exports.updateById = async (req, res) => {
-    const token = req.body.cookies.token
     const neededInfo = req.body
     const data = neededInfo.dataForSend
     const id = neededInfo.dataForSend.id
     try {
-       const admin = jwt.verify(token, `${TOKEN_KEY}`)
-       if(admin){
             const updatePost = await Rsses.update(data, {
                 where: {id: id}
             });
             if(updatePost){
                 res.status(200).send('Update')
             }
-        }
     } catch (e) {
         console.log('some error when update');
     }
   };
 
 module.exports.createPost = async (req, res)=>{
-   // const token = req.body.cookies.token
     const data = req.body.data
     try{
         const post = await Rsses.create(data)

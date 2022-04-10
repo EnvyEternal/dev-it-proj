@@ -9,21 +9,15 @@ import { useEffect } from 'react';
 import {restart} from './api/index.js'
 import { connect } from 'react-redux';
 import { createData, deleteData } from './redux/actions/index.js'
-import { useCookies } from "react-cookie";
 import AdminPanel from './modules/adminPanel';
-import EditPost from './modules/edit';
 import Role from './components/privat/role';
 import Fetching from './components/privat/fetching';
 
 function App(props) {
   const {createDataAction, deleteDataAction} = props
-  const [cookies] = useCookies();
 
   useEffect(()=>{
-    restart(cookies).then((res)=>createDataAction(res.data))
-    if(cookies.token === undefined){
-      deleteDataAction()
-    }
+    restart().then((res)=>createDataAction(res.data))
   },[])
 
 
@@ -33,7 +27,6 @@ function App(props) {
       <Route path="/" element={<RssList />} />
       <Route path="/login" element={<Fetching component = {<Login />} />} /> 
       <Route path="/admin" element={<Role component = {<AdminPanel/>}/>}/>
-      <Route path="/edit" element={<EditPost/>}/>
     </Routes>
     </>
   )

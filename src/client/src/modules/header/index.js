@@ -1,14 +1,14 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import '../../App.css'
-import { useCookies } from "react-cookie";
+import {logOut} from "../../api";
 
 
 function Header(props) {
     const {isFetching} = props.state
-    const [cookies, removeCookie] = useCookies();
+
     const logout = () =>{
-        removeCookie('token')
+        document.cookie = 'CookiesToken=; expires=Thu, 01 Jan 1970 00:00:01 GMT;';
     }
 
   return (

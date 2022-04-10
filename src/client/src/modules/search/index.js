@@ -24,8 +24,8 @@ function Search(props) {
    
   return (
     <>
-    <form onSubmit={handleSubmit} className='Search'>
-        <div >
+    <form onSubmit={handleSubmit} >
+        <div className='search-container'>
             <div>
                 Search news
             </div>

@@ -81,3 +81,9 @@ input{
 .button-edit:hover{
     cursor: pointer;
 }
+
+.control{
+    display: flex;
+    justify-content: center;
+    max-height: 20px;
+}

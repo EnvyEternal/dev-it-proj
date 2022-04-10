@@ -1,7 +1,8 @@
 import React,{useState} from 'react'
 import { createPost } from '../../api/index.js';
 
-function CreatePost() {
+function CreatePost(props) {
+    const canceledPost = props.canceledPost
     const [data, setData] = useState({
         title: "",
         categories: [''],
@@ -10,7 +11,10 @@ function CreatePost() {
         link: "",
         creator: ""
       })
-    //const [cookies, setCookie] = useCookies();
+
+    const canceled = () =>{
+        canceledPost()
+    }
 
       const handleChange = (e) => {
         const value = e.target.value;
@@ -30,7 +34,6 @@ function CreatePost() {
             categories: [data.categories],
             img: data.img,
         };
-        console.log(Data)
         createPost(Data)
       };
 
@@ -92,6 +95,7 @@ function CreatePost() {
                 </label>
               <button type="submit" className='button-edit'>Save</button>
             </form>
+                <button className='button-edit' onClick={canceled}>Canceled</button>
             </div>
         </div>
     </>
@@ -99,3 +103,4 @@ function CreatePost() {
 }
 
 export default CreatePost
+

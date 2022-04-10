@@ -2,13 +2,11 @@ import React, { useState } from 'react'
 import './Stylersscomponents.css'
 import { connect } from 'react-redux';
 import { delNews } from '../../api/index.js';
-import { useCookies } from "react-cookie";
 
 
 function Rsscomponent(props) {
     const {data, delPost, getCategories} = props
     const editData = data
-    const [cookies] = useCookies();
 
     const edit = () =>{
       getCategories(editData, true)
@@ -18,7 +16,7 @@ function Rsscomponent(props) {
       if(window.confirm('Do You Wont Delete This Post?'))
       {
         delPost(data.id)
-        delNews(data.id, cookies)
+        delNews(data.id)
       }
     }
     

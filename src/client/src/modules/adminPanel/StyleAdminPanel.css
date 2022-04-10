@@ -1,0 +1,32 @@
+.form-create{
+    border: 1px solid;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.container-users {
+    display: flex;
+}
+
+.container-users > div{
+    margin: 5px;
+}
+
+.all-users-container{
+    border: 1px solid;
+    max-width: 370px;
+    text-align: center;
+}
+
+.delete:hover{
+    cursor: pointer;
+    background-color: red;
+}
+
+.container-admin{
+    display: flex;
+    justify-content: space-between;
+    border: none;
+}
