@@ -30,7 +30,7 @@ app.use(cors({
 }))
 
 
-cron.schedule('5 * * * *', () => {
+cron.schedule('* * * * *', () => {
   console.log('Parsing RSS:');
   RssPusher()
 })
