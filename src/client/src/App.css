@@ -91,3 +91,45 @@
   color: white;
 }
 
+@media (min-height: 375px){
+  .Header{
+      max-width: 100%;
+  }
+  .Main-info{
+    display: flex;
+    flex-direction: column;
+  }
+  .img{
+    max-width: 330px;
+  }
+  .control{
+    margin-top: 40px;
+    display: flex;
+    flex-direction: column;
+  }
+  .button-edit{
+    margin-top: 50px;
+  }
+  .edit-form{
+    max-width: 100%;
+    margin-top: -53px;
+    max-height: 100%;
+    margin-left: -17%;
+  }
+  .edit-form-back{
+    position: absolute;
+    background-color: black;
+    top: 120px;
+    left: 0;
+  }
+  .container-admin{
+    display: flex;
+    flex-direction: column;
+  }
+  .LoginForm{
+    margin-left: -39px;
+    max-width: 100%;
+    margin-top: -50px;
+    text-align: center;
+  }
+}
