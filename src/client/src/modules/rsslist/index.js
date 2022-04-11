@@ -101,7 +101,7 @@ function RssList(props) {
   }
 
   const create = () =>{
-    setCreating(!creating)
+    setCreating(false)
   }
 
     useEffect(()=>{

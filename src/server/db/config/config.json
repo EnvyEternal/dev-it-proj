@@ -3,11 +3,24 @@
     "username": "postgres",
     "password": "7007",
     "database": "dbnews",
-    "host": "127.0.0.1",
+    "host": "database",
+    "port": "5432",
     "dialect": "postgres"
   },
   "test": {
+    "username": "postgres",
+    "password": "7007",
+    "database": "dbnews",
+    "host": "database",
+    "port": "5432",
+    "dialect": "postgres"
   },
   "production": {
+    "username": "postgres",
+    "password": "7007",
+    "database": "dbnews",
+    "host": "database",
+    "port": "5432",
+    "dialect": "postgres"
   }
 }

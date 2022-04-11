@@ -1,24 +1,20 @@
 #!/usr/bin/env bash
 
-#################################
-## Run application in DEV mode ##
-#################################
-
-
 started_at=$(date +"%s")
+echo "-----> Provisioning containers"
+docker-compose --file docker-compose up
+echo ""
 
 echo "-----> Provisioning containers"
-docker-compose --file docker-compose-dev.yaml up
+docker exec -it test-proj-devit_server npm i bcrypt
 echo ""
 
-# Run Sequalize's migrations.
 echo "-----> Running application migrations"
-docker exec -it rss-dev_1 sequelize db:migrate
+docker exec -it test-proj-devit_server sequelize db:migrate
 echo ""
 
-# Run Sequalize's seeds.
 echo "-----> Running application seeds"
-docker exec -it rss-dev_1 sequelize db:seed:all
+docker exec -it test-proj-devit_server sequelize db:seed:all
 echo "<----- Seeds created"
 
 ended_at=$(date +"%s")

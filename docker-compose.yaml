@@ -1,4 +1,5 @@
 version: '3'
+
 services:
   client:
     build:
@@ -14,9 +15,9 @@ services:
     depends_on:
       - database
     ports:
-      - '5000:5001'
+      - '5001:5001'
   database:
-    image: postgres
+    image: postgres:13.2-alpine
     restart: always
     ports:
       - '5432:5432'
