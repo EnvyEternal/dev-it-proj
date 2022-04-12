@@ -104,7 +104,11 @@ function RssList(props) {
   }
 
   const create = () =>{
+<<<<<<< HEAD
     setCreating(true)
+=======
+    setCreating(false)
+>>>>>>> 724c177de1b85ace18c14146d510dde4e594f803
   }
 
     useEffect(()=>{
