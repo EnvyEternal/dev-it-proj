@@ -35,6 +35,7 @@ function CreatePost(props) {
             img: data.img,
         };
         createPost(Data)
+          canceledPost()
       };
 
   return (

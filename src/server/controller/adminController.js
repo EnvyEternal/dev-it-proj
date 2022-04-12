@@ -2,7 +2,6 @@ const {Admin} = require('../db/models')
 const bcrypt = require('bcrypt')
 const jwt = require("jsonwebtoken");
 const TOKEN_KEY = require('../constants/index');
-const cookieJwtAuth = require('../middleware/authentication/cookieJwtAuth')
 
 module.exports.createAdmin = async(req, res)=>{
     const { data } = req.body
@@ -48,18 +47,9 @@ module.exports.getAdmin = async(req, res) =>{
         }
 }
 
-module.exports.logOut = async(req, res) =>{
-    try{
-
-        res.clearCookie("CookiesToken")
-    }catch(e){
-        res.status(400).send("Error")
-    }
-}
-
 module.exports.getAllModerator = async (req, res)=>{
     try{
-        const allModderator = await Admin.findAll({where: {role: 'Moderator'},attributes: { exclude: ['password','updatedAt'] }})
+        const allModderator = await Admin.findAll({attributes: { exclude: ['password','updatedAt'] }})
         if(allModderator){
             res.status(200).send(allModderator)
         }

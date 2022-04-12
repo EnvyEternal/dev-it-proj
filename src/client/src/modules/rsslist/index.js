@@ -86,6 +86,9 @@ function RssList(props) {
   };
   const canceledPost = () =>{
     setCreating(false)
+    setTimeout(() => {
+      getNews()
+    }, 50)
   }
 
   const getCategories = (data) =>{
@@ -101,7 +104,7 @@ function RssList(props) {
   }
 
   const create = () =>{
-    setCreating(!creating)
+    setCreating(true)
   }
 
     useEffect(()=>{

@@ -4,9 +4,10 @@ const router = require('../routers/router')
 let cron = require('node-cron');
 const cookieParser = require("cookie-parser");
 const cors = require('cors')
+require('dotenv').config()
 
+const PORT = process.env.PORT ;
 
-const PORT = process.env.PORT || 5001;
 const app = express();
 app.use(cookieParser())
 
@@ -29,13 +30,12 @@ app.use(cors({
   credentials: true
 }))
 
-
 cron.schedule('* * * * *', () => {
-  console.log('Parsing RSS:');
   RssPusher()
 })
 
 app.listen(PORT,() =>
   console.log(`App listening ${PORT}`)
 );
+
 

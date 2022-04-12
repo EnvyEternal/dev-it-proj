@@ -1,1 +1,1 @@
-module.exports= {TOKEN_KEY: 'secret'}
+module.exports= {TOKEN_KEY: process.env.JWT_SECRET}
