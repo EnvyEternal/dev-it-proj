@@ -9,10 +9,11 @@ RUN CONTAINER
 sudo docker-compose up
 
 RUN MIGRATION
-docker exec server npm run migrate
+docker-compose exec server npm run migrate
 
 RUN SEED
-docker exec server npm run seed
+docker-compose exec server npm run seed
+
 
 ```
 

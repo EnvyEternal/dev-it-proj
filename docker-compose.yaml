@@ -2,13 +2,11 @@ version: '3'
 
 services:
   client:
-    container_name: client
     build:
       context: ./src/client
     ports:
       - '3000:3000'
   server:
-    container_name: server
     build:
       context: ./src/server
     depends_on:
@@ -16,7 +14,6 @@ services:
     ports:
       - '5001:5001'
   database:
-    container_name: db
     image: postgres:13.2-alpine
     ports:
       - '5432:5432'
