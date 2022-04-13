@@ -5,9 +5,15 @@ For start project you must located in directory project
 Comand for start:
 
 ```bash
-docker-compose --file docker-compose.yaml up
+RUN CONTAINER
+sudo docker-compose up
 
-docker exec test-proj-devit_backend-server_1 bash  -c "cd ./db; npx sequelize db:migrate; npx sequelize db:seed:all"
+RUN MIGRATION
+docker exec server npm run migrate
+
+RUN SEED
+docker exec server npm run seed
+
 ```
 
 

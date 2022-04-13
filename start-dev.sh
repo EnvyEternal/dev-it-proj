@@ -3,10 +3,11 @@
 started_at=$(date +"%s")
 echo "-----> Provisioning containers"
 sudo docker-compose --file docker-compose.yaml up
-echo ""
 
+echo ""
+docker exec test-proj-devit_backend-server_1 npm run migrate
 echo -e "-----> Provisioning containers"
-docker exec test-proj-devit_backend-server_1 bash  -c "cd ./db; npx sequelize db:migrate; npx sequelize db:seed:all"
+docker exec test-proj-devit_backend-server_1 npm run seed
 echo ""
 
 ended_at=$(date +"%s")
