@@ -6,7 +6,7 @@ Comand for start:
 
 ```bash
 RUN CONTAINER
-sudo docker-compose up
+docker-compose up
 
 RUN MIGRATION
 docker-compose exec server npm run migrate
