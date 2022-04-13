@@ -6,6 +6,4 @@ RUN npm rebuild bcrypt --build-from-source
 COPY . .
 EXPOSE 5001
 
-CMD cd db && npx sequelize-cli db:migrate &&  npx sequelize-cli db:seed:all &&npm run start
-
-
+CMD npm run start

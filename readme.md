@@ -5,13 +5,12 @@ For start project you must located in directory project
 Comand for start:
 
 ```bash
-./start-dev.sh
-```
-######
-Or you might 
-```
 docker-compose --file docker-compose.yaml up
+
+docker exec test-proj-devit_backend-server_1 bash  -c "cd ./db; npx sequelize db:migrate; npx sequelize db:seed:all"
 ```
+
+
 ## Usage
 
 ```
