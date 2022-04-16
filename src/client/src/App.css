@@ -1,111 +1,36 @@
-.App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-.Header{
-  background-color: rgb(184, 0, 0);
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  height: 100px;
-  font-size: 40px;
-  
-}
-
-.Name{
-  height: 20px;
-}
-
-.News{
-  margin-left: 10px;
-  text-decoration: none;
-  color: white;
-}
-
-.Log{
-  text-decoration: none;
-  font-size: 20px;
-  margin-right: 10px;
-  color: white;
-  position: relative;
-}
-
-.Log:after {
-	display: block;
-	position: absolute;
-	left: 0; 
-	width: 0;
-	height: 2px;
-	background-color: white;
-	content: "";
-	transition: width 0.3s ease-out;
-}
-
-.Log:hover:after,
-.Log:focus:after {
-	width: 100%;
-}
-
-.Footer{
-  background-color: rgb(184, 0, 0);
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  height: 100px;
-  font-size: 40px;
-  color: white;
-}
 
 @media (max-width: 900px){
   .Header{
       max-width: 100%;
+      flex-basis: auto;
+      justify-content: space-between;
   }
   .Main-info{
     display: flex;
     flex-direction: column;
   }
   .img{
-    max-width: 330px;
+    max-width: 100%;
   }
   .control{
-    margin-top: 40px;
+    margin-top: 50px;
     display: flex;
     flex-direction: column;
+    flex-basis: auto;
+    align-items: center;
+  }
+  .search{
+    height: 100%;
+  }
+
+  .admin-header{
+    margin-left: 30px;
+  }
+  .search-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 80px;
   }
   .button-edit{
     margin-top: 50px;
@@ -131,5 +56,20 @@
     max-width: 100%;
     margin-top: -50px;
     text-align: center;
+  }
+  .edit{
+    align-items: center;
+  }
+  .create-button{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 10px;
+  }
+  .select-cont{
+    display: flex;
+    flex-direction: column;
+    max-width: 300px;
+    align-items: center;
   }
 }

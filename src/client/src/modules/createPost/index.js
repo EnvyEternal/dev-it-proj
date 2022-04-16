@@ -96,7 +96,7 @@ function CreatePost(props) {
                 </label>
               <button type="submit" className='button-edit'>Save</button>
             </form>
-                <button className='button-edit' onClick={canceled}>Canceled</button>
+                <button className='button-edit' onClick={canceled}>Cancel</button>
             </div>
         </div>
     </>

@@ -1,0 +1,44 @@
+.Header{
+    background-color: rgb(184, 0, 0);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 100px;
+    font-size: 40px;
+
+}
+
+.Name{
+    height: 20px;
+}
+
+.News{
+    margin-left: 10px;
+    text-decoration: none;
+    color: white;
+}
+
+
+.Log{
+    text-decoration: none;
+    font-size: 20px;
+    margin-right: 10px;
+    color: white;
+    position: relative;
+}
+
+.Log:after {
+    display: block;
+    position: absolute;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: white;
+    content: "";
+    transition: width 0.3s ease-out;
+}
+
+.Log:hover:after,
+.Log:focus:after {
+    width: 100%;
+}

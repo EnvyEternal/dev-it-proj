@@ -1,0 +1,11 @@
+.select-cont{
+    margin: 25px;
+    display: flex;
+
+}
+
+.select-field{
+    height: 20px;
+    margin-left: 5px;
+}
+

@@ -105,7 +105,6 @@ function RssList(props) {
 
   const create = () =>{
     setCreating(true)
-
   }
 
     useEffect(()=>{
@@ -131,7 +130,7 @@ function RssList(props) {
           <Select callSelect={callSelect}/>
         </div>
         {creating? <CreatePost canceledPost={canceledPost} /> : null}
-    {isFetching ? <button onClick={create} className='button-edit'>Create Post</button> : null}
+    {isFetching ? <div className='create-button'><button onClick={create} className='button-edit'>Create Poste</button></div> : null}
         <div>{editing ? 
           <div className='edit-form-back'>
             <div className='edit-form'>
@@ -183,7 +182,7 @@ function RssList(props) {
                 </label>
               <button type="submit" className='button-edit'>Save</button>
             </form>
-            <button onClick={canceled} className='button-edit'>Canceled</button>
+            <button onClick={canceled} className='button-edit'>Cancel</button>
             </div>
         </div> : null}</div>
         <div className='rsslist'>{data.map(list)}</div>

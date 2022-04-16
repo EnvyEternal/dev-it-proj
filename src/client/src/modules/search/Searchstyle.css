@@ -1,7 +1,9 @@
 .search-container{
     display: flex;
-    align-self: center;
     justify-content: center;
+    margin-top: 10px;
+    align-self: stretch;
+    align-items: center;
 }
 
 .button-search{
@@ -25,4 +27,11 @@
       border: none;
       border-bottom: 1px solid;
       height: 26px;
+
   }
+
+@media (max-width: 900px){
+    .search-container{
+        margin-top: 100px;
+    }
+}

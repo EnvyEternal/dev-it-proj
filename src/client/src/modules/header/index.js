@@ -1,8 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import '../../App.css'
-import {logOut} from "../../api";
-
+import './Headertyle.css'
 
 function Header(props) {
     const {isFetching} = props.state
@@ -12,7 +10,7 @@ function Header(props) {
     }
 
   return (
-    <div>
+    <div className='header-container'>
         <div className='Name'>
             RSS List
         </div>
@@ -20,7 +18,7 @@ function Header(props) {
             <a className='News' href='/'>
                 NEWS
             </a>
-            <div>
+            <div className='admin-header'>
                 {!isFetching ?
                 <a href='/login' className='Log'>
                     Login

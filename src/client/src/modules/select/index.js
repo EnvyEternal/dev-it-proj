@@ -1,4 +1,5 @@
 import React from 'react'
+import './Selectstyle.css'
 
 function Select(props) {
     const {callSelect} = props
@@ -8,9 +9,9 @@ function Select(props) {
         callSelect(phrase)
     }
   return (
-    <>
+    <div className='select-cont'>
     <div>Filter categories</div>
-    <select onChange={handleChange}>
+    <select onChange={handleChange} className='select-field'>
         <option value="none">None</option>
         <option value="nature">Nature</option>
         <option value="technology">Technology</option>
@@ -19,7 +20,7 @@ function Select(props) {
         <option value="apple">Apple</option>
         <option value="health">Health</option>
     </select>
-    </>
+    </div>
   )
 }
 

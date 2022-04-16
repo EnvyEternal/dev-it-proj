@@ -27,6 +27,8 @@
 
 .container-admin{
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     border: none;
+    margin-bottom: 180px;
+    margin-top: 180px;
 }

@@ -1,9 +1,9 @@
 import React from 'react'
-import '../../App.css'
+import './Footerstyle.css'
 
 function Footer() {
   return (
-    <div className='Footer'>Creater by Eternal</div>
+    <div className='Footer'>Created by Eternal</div>
   )
 }
 

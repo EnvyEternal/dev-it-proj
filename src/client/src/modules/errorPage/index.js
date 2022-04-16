@@ -1,13 +1,14 @@
 import React from 'react'
 import Footer from '../footer'
 import Header from '../header'
+import './Errorstyle.css'
 
 function ErrorPage() {
   return (
     <>
     <Header/>
-    <div>
-        Error
+    <div className='error'>
+        Page not found 404
     </div>
     <Footer/>
     </>
