@@ -1,11 +1,12 @@
 'use strict';
 const bcrypt = require('bcrypt')
+const {ADMIN_PASSWORD, ADMIN_LOGIN} = require("../../constants");
 
 module.exports = {
   async up (queryInterface, Sequelize) {
     const fields = [{
-      login: 'admin',
-      passwordHash: bcrypt.hashSync('admin', 10),
+      login: ADMIN_LOGIN,
+      passwordHash: bcrypt.hashSync(ADMIN_PASSWORD, 10),
       role: 'admin',
       createdAt: new Date(),
       updatedAt: new Date()
