@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import './Stylersscomponents.css'
 import { connect } from 'react-redux';
-import { delNews } from '../../api/index.js';
+import { delNews } from '../../api';
 
 
 function Rsscomponent(props) {

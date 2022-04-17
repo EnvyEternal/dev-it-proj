@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from 'react'
-import Header from '../header'
-import Footer from "../footer";
+import Header from '../../components/header'
+import Footer from "../../components/footer";
 import './StyleAdminPanel.css'
 import {allModerator, createModerator, deleteModerator} from '../../api/index'
 

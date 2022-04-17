@@ -1,6 +1,5 @@
 import React, { useState } from 'react'
-import Header from '../header';
-
+import Header from '../../components/header';
 import './Stylelogin.css'
 import { connect } from 'react-redux';
 import { createData } from '../../redux/actions/index.js'

@@ -1,13 +1,13 @@
 import React, { useEffect } from 'react'
 import { useState} from 'react'
-import Rsscomponent from '../../modules/rsscomponent'
+import Rsscomponent from '../../components/rsscomponent'
 import './Stylersslist.css'
-import Header from '../header'
-import Footer from '../footer'
+import Header from '../../components/header'
+import Footer from '../../components/footer'
 import { getRss, updatePost } from '../../api'
-import Search from '../search'
-import Select from '../select'
-import CreatePost from '../createPost'
+import Search from '../../components/search'
+import Select from '../../components/select'
+import CreatePost from '../../components/createPost'
 import {connect} from "react-redux";
 
 function RssList(props) {
@@ -27,7 +27,7 @@ function RssList(props) {
   const delPost = () =>{
     setTimeout(() => {
       getNews()
-    }, 10)
+    }, 20)
   
   }
 

@@ -1,5 +1,5 @@
 import React,{useState} from 'react'
-import { createPost } from '../../api/index.js';
+import { createPost } from '../../api';
 
 function CreatePost(props) {
     const canceledPost = props.canceledPost
