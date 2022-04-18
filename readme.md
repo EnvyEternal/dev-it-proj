@@ -28,8 +28,8 @@ docker-compose exec server npm run seed
 
 Open browser and go to http://localhost:3000/
 You have standart admin data: 
-Login: Admin
-Password: Admin
+Login: admin
+Password: admin
 
 If you changed the admin data, then use yours
 
